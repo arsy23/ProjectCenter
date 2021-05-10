@@ -30,7 +30,7 @@ function ResolveProjectsPath {
     # @Date Created = Monday, June 1, 2020 3:49:53 PM
     #____________________________________________________#
 
-    if([string]::IsNullOrEmpty($global:ProjectsPath)){$global:ProjectsPath = ""; foreach ($pathPart in (Get-Location).Path.Split('\')) { $global:ProjectsPath += "$pathPart\"; if ($pathPart -eq "Projects"){break;} }}
+    if([string]::IsNullOrEmpty($global:ProjectsPath)){$global:ProjectsPath = "C:\Projects\" }
     return $global:ProjectsPath.Replace('\\', '\');
 }        
 function GetProjectsChildPath {
