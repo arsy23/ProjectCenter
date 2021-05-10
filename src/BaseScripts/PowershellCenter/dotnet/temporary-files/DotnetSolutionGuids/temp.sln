@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26124.0
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "temporary", "temporary", "{8D51C50D-7BD7-4FEF-B47B-3B4E9FE543B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "temp.classLib", "temporary\classLib\temp.classLib.csproj", "{204C2EA5-9DE3-4AC2-926C-A5B94733C2DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{204C2EA5-9DE3-4AC2-926C-A5B94733C2DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{204C2EA5-9DE3-4AC2-926C-A5B94733C2DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{204C2EA5-9DE3-4AC2-926C-A5B94733C2DB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{204C2EA5-9DE3-4AC2-926C-A5B94733C2DB}.Debug|x64.Build.0 = Debug|Any CPU
+		{204C2EA5-9DE3-4AC2-926C-A5B94733C2DB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{204C2EA5-9DE3-4AC2-926C-A5B94733C2DB}.Debug|x86.Build.0 = Debug|Any CPU
+		{204C2EA5-9DE3-4AC2-926C-A5B94733C2DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{204C2EA5-9DE3-4AC2-926C-A5B94733C2DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{204C2EA5-9DE3-4AC2-926C-A5B94733C2DB}.Release|x64.ActiveCfg = Release|Any CPU
+		{204C2EA5-9DE3-4AC2-926C-A5B94733C2DB}.Release|x64.Build.0 = Release|Any CPU
+		{204C2EA5-9DE3-4AC2-926C-A5B94733C2DB}.Release|x86.ActiveCfg = Release|Any CPU
+		{204C2EA5-9DE3-4AC2-926C-A5B94733C2DB}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{204C2EA5-9DE3-4AC2-926C-A5B94733C2DB} = {8D51C50D-7BD7-4FEF-B47B-3B4E9FE543B3}
+	EndGlobalSection
+EndGlobal
