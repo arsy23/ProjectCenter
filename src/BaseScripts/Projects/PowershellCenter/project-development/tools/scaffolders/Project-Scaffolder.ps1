@@ -13,34 +13,45 @@
 #----------------------------------------------------
 # @Date Created = Monday, June 1, 2020 3:49:53 PM2
 #----------------------------------------------------
-$global:powershellCenterPath = ""; foreach ($pathPart in ((Get-Location).Path).Split('\')) { $global:powershellCenterPath += "$pathPart\"; if ($pathPart -eq "PowershellCenter"){break;} }
+$global:powershellCenterPath = ""; foreach ($pathPart in ((Get-Location).Path).Split('\')) { $global:powershellCenterPath += "$pathPart\"; if ($pathPart -eq "PowershellCenter") { break; } }
 #----------------------------------------------------
 Invoke-Expression "& '$global:powershellCenterPath\Import-Useful-Modules.ps1'";
 #----------------------------------------------------
-AutoImportModule  -FileName "Pack-Nuget-Packages";
 AutoImportModule  -FileName "CleanArchitecture-Scaffolder";
 # AutoImportModule  -FileName "OnionArchitecture-Scaffolder";
 #____________________________________________________#
 
 while ($selectedProjectType -ne "Exit Project Scaffolder") {
-   $selectedProjectType = NumericOptionProvider -Message "What type of project you need to scaffold?" -Options @( "Build Dotnet Project", "Restore Dotnet Project", "Managed Class Library", "Unit test coverage for classlibrary project", "Clean Architecture", "Packing Nuget Packges", "Onion Architecture", "Exit Project Scaffolder" );
+   $selectedProjectType = NumericOptionProvider -Message "What type of project you need to scaffold?" -Options @( 
+      "Build Dotnet Projects",
+      "Publish Nuget Packages",
+      "Restore Dotnet Projects",
+      "Managed Class Library",
+      "Unit test coverage for classlibrary project",
+      "Clean Architecture", "Packing Nuget Packges", 
+      "Onion Architecture"
+      , "Exit Project Scaffolder" );
+
    switch ($selectedProjectType) {
-      "Build Dotnet Project" {
+      "Publish Nuget Packages" {
+         AutoInvokeScript -FileName "Publish-NugetPackage-Options";
+      } 
+      "Build Dotnet Projects" {
          AutoInvokeScript -FileName "Build-DotNet-Project";
-       } 
-      "Restore Dotnet Project" {
+      } 
+      "Restore Dotnet Projects" {
          AutoInvokeScript -FileName "Restore-DotNet-Project";
-       }
+      }
       "Managed Class Library" { 
-        ScaffoldManagedClasslibraryProject;
-     }
-     "Clean Architecture" {
-        ScaffoldCleanArchitectureProject;
+         ScaffoldManagedClasslibraryProject;
+      }
+      "Clean Architecture" {
+         ScaffoldCleanArchitectureProject;
       }
       "Packing Nuget Packges" {
          PackingOptions;
-       }
-      "Onion Architecture"{
+      }
+      "Onion Architecture" {
          ScaffoldOnionArchitectureProject;
       }
       "Unit test coverage for classlibrary project" {
@@ -50,11 +61,10 @@ while ($selectedProjectType -ne "Exit Project Scaffolder") {
          $testProjectName = $csprojFileName + ".UnitTest";
          $csprojFilePathParts = $csprojFilePath.Split('\');
          $csprojFilePathPartsComponentIndex = $csprojFilePathParts.IndexOf("Components");
-         if($csprojFilePathPartsComponentIndex -ne -1)
-         {
+         if ($csprojFilePathPartsComponentIndex -ne -1) {
             $componentName = $csprojFilePathParts[$csprojFilePathPartsComponentIndex + 1];
          }
-         else{ 
+         else { 
             $componentName = "";
          }
          $csprojFilePathPartsProjectsIndex = $csprojFilePathParts.IndexOf("Projects");
@@ -62,5 +72,5 @@ while ($selectedProjectType -ne "Exit Project Scaffolder") {
          MakeNewXUnitProject -ComponentName $componentName -TestProjectName $testProjectName -ProjectToCoverageName $csprojFileName -SolutionFileName $solutionFileName -ProjectName $projectName -ProjectToCoverage;
       }
       Default {}
-  }
+   }
 }
