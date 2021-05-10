@@ -30,5 +30,5 @@ AutoImportModule -FileName "PowershellCenter-Path";
 AutoImportModule -FileName "Invoke-PowershellCenter-Script";
 AutoImportModule -FileName "Import-PowershellCenter-Module";
 AutoImportModule -FileName "Resolve-PowershellCenter-FilePath";
-AutoImportModule -FileName "Projects";
+AutoImportModule -FileName "ProjectResources";
 AutoImportModule -FileName "TemplateCenter-Path";
