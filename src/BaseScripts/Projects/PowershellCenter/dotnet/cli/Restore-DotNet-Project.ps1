@@ -16,7 +16,7 @@
 #----------------------------------------------------
 $global:powershellCenterPath = ""; foreach ($pathPart in ((Get-Location).Path).Split('\')) { $global:powershellCenterPath += "$pathPart\"; if ($pathPart -eq "PowershellCenter") { break; } }
 # ----------------------------------------------------
-Invoke-Expression "& 'C:\Projects\PowershellCenter\Import-Useful-Modules.ps1'";
+Invoke-Expression "& '$global:powershellCenterPath\Import-Useful-Modules.ps1'";
 #----------------------------------------------------
 AutoImportModule -FileName "Dotnet-Cli-Command-Provider";
 #____________________________________________________#
