@@ -48,7 +48,7 @@ function MakeProjectNamePrifix {
     #----------------------------------------------------
     # @Date Created = 06/29/2020 01:59:59
     #----------------------------------------------------
-    AutoImportModule -FileName "Projects";
+    AutoImportModule -FileName "ProjectResources";
     #AutoInvokeScript -FileName "" -Arguments @{"" =""; };
     #____________________________________________________#
     if (![string]::IsNullOrEmpty($ProjectNameAbbreviation)) {

@@ -28,7 +28,7 @@ function FolderExistInSubFolders {
     #----------------------------------------------------
     # @Date Created = 06/05/2020 23:17:51
     #----------------------------------------------------
-    AutoImportModule -FileName "Projects";
+    AutoImportModule -FileName "ProjectResources";
     #AutoInvokeScript -FileName "" -Arguments @{"" =""; };
     #____________________________________________________#
     $folderPath = FolderLookingupByNameInSubFolders -Path $Path -FolderName $FolderName -ThrowIfExistException:$ThrowIfExistException -ThrowIfNotExistException:$ThrowIfNotExistException;
