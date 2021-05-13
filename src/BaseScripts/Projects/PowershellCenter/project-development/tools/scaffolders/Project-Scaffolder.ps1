@@ -23,9 +23,9 @@ AutoImportModule  -FileName "CleanArchitecture-Scaffolder";
 
 while ($selectedProjectType -ne "Exit Project Scaffolder") {
    $selectedProjectType = NumericOptionProvider -Message "What type of project you need to scaffold?" -Options @( 
+      "Restore Dotnet Projects",      
       "Build Dotnet Projects",
       "Publish Nuget Packages",
-      "Restore Dotnet Projects",
       "Managed Class Library",
       "Unit test coverage for classlibrary project",
       "Clean Architecture", "Packing Nuget Packges", 
