@@ -732,8 +732,10 @@ function BuildProject {
     #____________________________________________________#
     $projectBasePath = ProjectLookupInProjects -ProjectName $ProjectName -ThrowIfNotExistException;
     $csprojFilePath = FileLookingupByNameAndExtension -Path $projectBasePath -FileName $CsprojFileName -FileExtension ".csproj" -ThrowIfNotExistException;
-    $argumentList = "build -c `"Release`" ";
-    Start-Process dotnet -WorkingDirectory (Split-Path -Path $csprojFilePath -Parent) -ArgumentList $argumentList -NoNewWindow -Wait;
+    $argumentList = " build -c `"Debug`"  --nologo --no-dependencies --no-restore --verbosity m";
+    $workingDirectory = Split-Path -Path $csprojFilePath -Parent;
+    Start-Process dotnet -WorkingDirectory $workingDirectory -ArgumentList $argumentList -Wait -NoNewWindow -RedirectStandardError "build.errors.txt"  ;
+    
     PowershellLogger -Message "The Csproj file <$CsprojFileName> build completed!" -LogType Success;
 }        
 function DebugReinitDotnetTemplates {

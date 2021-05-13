@@ -26,9 +26,12 @@ do {
     switch ($selectedProjectType) {
         "Build all csproj file of a project" { 
             $projectBasePath  = ShowFolderBrowserDialogForProjects -IncludeInSubFolders;
-            Get-ChildItem -Path $projectBasePath -Filter "*.csproj" -Recurse | ForEach-Object {
-                BuildProject -CsprojFileName $_.BaseName -ProjectName (Split-path -Path $projectBasePath -Leaf);
-            };
+            $csprojFiles =  Get-ChildItem -Path $projectBasePath -Filter "*.csproj" -Recurse;
+            $projectName = Split-path -Path $projectBasePath -Leaf;
+            foreach ($file in $csprojFiles) {
+                BuildProject -CsprojFileName $file.BaseName -ProjectName $projectName;
+            }
+               
         }
         "Build a csproj file" { 
             $csprojFilePath = ShowOpenFileDialogForProjects -FileTypeTitle "Csproj" -Filter "dotnet csproj file (*.csproj)|*.csproj";
