@@ -21,40 +21,50 @@ AutoImportModule  -FileName "CleanArchitecture-Scaffolder";
 # AutoImportModule  -FileName "OnionArchitecture-Scaffolder";
 #____________________________________________________#
 
-while ($selectedProjectType -ne "Exit Project Scaffolder") {
+$option1 = "Restore Dotnet Projects";
+$option2 = "Build Dotnet Projects";
+$option3 = "Publish Nuget Packages";
+$option4 = "Packing Nuget Packges";
+$option5 = "Clean Architecture";
+$option6 = "Managed Class Library";
+$option7 = "Onion Architecture";
+$option8 = "Unit test coverage for classlibrary project";
+$optionExit = "Exit Project Scaffolder";
+while ($selectedProjectType -ne $optionExit) {
    $selectedProjectType = NumericOptionProvider -Message "What type of project you need to scaffold?" -Options @( 
-      "Restore Dotnet Projects",      
-      "Build Dotnet Projects",
-      "Publish Nuget Packages",
-      "Managed Class Library",
-      "Unit test coverage for classlibrary project",
-      "Clean Architecture", "Packing Nuget Packges", 
-      "Onion Architecture"
-      , "Exit Project Scaffolder" );
+      $option1,      
+      $option2,
+      $option3,
+      $option4,
+      $option5,
+      $option6,
+      $option7,
+      $option8,
+      $optionExit );
 
    switch ($selectedProjectType) {
-      "Publish Nuget Packages" {
-         AutoInvokeScript -FileName "Publish-NugetPackage-Options";
+      $option1 {
+         AutoInvokeScript -FileName "Restore-DotNet-Project";
       } 
-      "Build Dotnet Projects" {
+      $option2 {
          AutoInvokeScript -FileName "Build-DotNet-Project";
       } 
-      "Restore Dotnet Projects" {
-         AutoInvokeScript -FileName "Restore-DotNet-Project";
+      $option3 {
+         AutoInvokeScript -FileName "Publish-NugetPackage-Options";
       }
-      "Managed Class Library" { 
-         ScaffoldManagedClasslibraryProject;
-      }
-      "Clean Architecture" {
-         ScaffoldCleanArchitectureProject;
-      }
-      "Packing Nuget Packges" {
+      $option4 { 
          PackingOptions;
       }
-      "Onion Architecture" {
+      $option5 {
+         ScaffoldCleanArchitectureProject;
+      }
+      $option6 {
+         ScaffoldManagedClasslibraryProject;
+      }
+      $option7 {
          ScaffoldOnionArchitectureProject;
       }
-      "Unit test coverage for classlibrary project" {
+      $option8 {
          $csprojFilePath = ShowOpenFileDialogForProjects -FileTypeTitle "Csproj" -Filter "dotnet csproj file (*.csproj)|*.csproj";
          $solutionFileName = ShowOpenFileDialogForProjects -FileTypeTitle "Solution" -Filter "dotnet project solution file (*.sln)|*.sln" -ResolveFileName;
          $csprojFileName = [System.IO.Path]::GetFileNameWithoutExtension((Split-Path -Path $csprojFilePath -Leaf));

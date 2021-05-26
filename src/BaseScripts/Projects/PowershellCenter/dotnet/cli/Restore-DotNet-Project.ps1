@@ -20,21 +20,23 @@ Invoke-Expression "& '$global:powershellCenterPath\Import-Useful-Modules.ps1'";
 #----------------------------------------------------
 AutoImportModule -FileName "Dotnet-Cli-Command-Provider";
 #____________________________________________________#
-
+$option1 = "Restore all csproj file of a project";
+$option2 = "Restore a csproj file";
+$optionExit = "Exit resotre dotNet project";
 do {
-    $selectedProjectType = NumericOptionProvider -Message "Choose one of restore options:" -Options @("Restore all csproj file of a project", "Restore a csproj file", "Exit resotre dotNet droject" );
+    $selectedProjectType = NumericOptionProvider -Message "Choose one of restore options:" -Options @($option1, $option2, $optionExit);
     switch ($selectedProjectType) {
-        "Restore all csproj file of a project" { 
+        $option1 { 
             $projectBasePath  = ShowFolderBrowserDialogForSelectOneOfProjectInProjects -IncludeInSubFolders;
             Get-ChildItem -Path $projectBasePath -Filter "*.csproj" -Recurse | ForEach-Object {
                 RestoreProject -CsprojFileName $_.BaseName -ProjectName (Split-path -Path $projectBasePath -Leaf);
             };
         }
-        "Restore a csproj file" { 
+        $option2 { 
             $csprojFilePath = ShowOpenFileDialogForProjects -FileTypeTitle "Csproj" -Filter "dotnet csproj file (*.csproj)|*.csproj";
             $csprojFilePathParts = ((Get-Item -Path $csprojFilePath).DirectoryName).Split("\");
             $projectName = $csprojFilePathParts[$csprojFilePathParts.IndexOf("Projects") + 1];
             RestoreProject -CsprojFileName (Split-Path -Path $csprojFilePath -Leaf) -ProjectName $projectName;
         }
     }
-} while ($selectedProjectType -ne "Exit resotre dotNet droject");
+} while ($selectedProjectType -ne $optionExit);
