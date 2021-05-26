@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Source\PowershellCenter.Core.csproj" />
+    <ProjectReference Include="..\..\Source\ProjectCenter.Core.csproj" />
   </ItemGroup>
 
 </Project>

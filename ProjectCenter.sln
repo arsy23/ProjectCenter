@@ -15,9 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{A755353A-3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{33BB0E7D-68D9-44E2-9157-2D7B62D0FD91}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowershellCenter.Core.XUnit", "src\Core\Tests\XUnit\PowershellCenter.Core.XUnit.csproj", "{C60DFC1A-88F9-40BC-B5E1-D4E02DF910E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCenter.Core.XUnit", "src\Core\Tests\XUnit\ProjectCenter.Core.XUnit.csproj", "{C60DFC1A-88F9-40BC-B5E1-D4E02DF910E7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowershellCenter.Core", "src\Core\Source\PowershellCenter.Core.csproj", "{980F4FAC-0B6F-471E-B708-27CB514B9980}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCenter.Core", "src\Core\Source\ProjectCenter.Core.csproj", "{980F4FAC-0B6F-471E-B708-27CB514B9980}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
