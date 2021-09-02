@@ -29,7 +29,7 @@ do {
     switch ($selectedProjectType) {
         $option1{ 
             $projectBasePath = ShowFolderBrowserDialogForProjects -IncludeInSubFolders;
-            ClearNugetPackages -Path $projectBasePath;
+            Get-ChildItem -Path $projectBasePath;
         }
         $option2{ 
             $projectBasePath = ShowFolderBrowserDialogForProjects -IncludeInSubFolders;
