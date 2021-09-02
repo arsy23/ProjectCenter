@@ -61,3 +61,45 @@ function RemoveFileExistInSubFolder {
     PowershellLogger -Message ("File <$fullFileName> removed from project <$itemPath> successfully!") -LogType Success -IncludeExtraLine;
 }
 
+function RemoveAllFileExistInSubFolderByExtension {
+    param(
+        [ValidateNotNullOrEmpty()]
+        [Parameter(Mandatory = $true)]
+        [string]
+        $Path,
+        [ValidateNotNullOrEmpty()]
+        [Parameter(Mandatory = $true)]
+        [string[]]
+        $Include,
+        [switch]
+        $Recurse
+    )
+    #####################################################
+    # @Autor = Arsalan Fallahpour    
+    #----------------------------------------------------
+    # @Function Identity = 98b2dd24-0614-4bc7-913e-82bd20b40896
+    #----------------------------------------------------
+    # @Function Name = RemoveFileExistInSubFolder
+    #----------------------------------------------------
+    # @Usage = RemoveFileExistInSubFolder
+    #----------------------------------------------------
+    # @Description = -
+    #----------------------------------------------------
+    # @Return = -
+    #----------------------------------------------------
+    # @Development Note = -
+    #----------------------------------------------------
+    # @Date Created = 06/30/2020 17:02:36
+    #----------------------------------------------------
+    AutoImportModule -FileName "File-Name";
+    #____________________________________________________#
+    if ($Recurse) {
+    Remove-Item  $Path -Include $Include -Recurse -InformationAction SilentlyContinue;
+    }
+    else{
+    Remove-Item $Path -Include $Include  -InformationAction SilentlyContinue;
+
+    }
+    PowershellLogger -Message ("Files  removed from <$Path> successfully!") -LogType Success -IncludeExtraLine;
+}
+
