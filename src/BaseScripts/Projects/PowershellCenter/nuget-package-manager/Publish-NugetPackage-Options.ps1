@@ -10,12 +10,11 @@ AutoImportModule -FileName "ClearNugetPackages";
 
 $option1 = "Clear all package file of a project";
 $option2 = "Publish all NugetPackage<.nupkg> and <SymbolPackage>.snupkg file of a project";
-$option3 = "Publish all NugetPackage<.nupkg> and <SymbolPackage>.snupkg file of a project";
-$option4 = "Publish all NugetPackage<.nupkg> file of a project";
-$option5 = "Publish all <SymbolPackage>.snupkg file of a project";
-$option6 = "Publish a NugetPackage<.nupkg> and <SymbolPackage>.snupkg file";
-$option7 = "Publish a NugetPackage<.nupkg> file";
-$option8 = "Publish a <SymbolPackage>.snupkg file";
+$option3 = "Publish all NugetPackage<.nupkg> file of a project";
+$option4 = "Publish all <SymbolPackage>.snupkg file of a project";
+$option5 = "Publish a NugetPackage<.nupkg> and <SymbolPackage>.snupkg file";
+$option6 = "Publish a NugetPackage<.nupkg> file";
+$option7 = "Publish a <SymbolPackage>.snupkg file";
 $optionExit = "Exit Publish nuget services";
 do {
     $selectedProjectType = NumericOptionProvider -Message "Choose one of restore options:" -Options @(
